@@ -3,7 +3,7 @@ title: "Jamfを使ってESETからMicrosoft Defender for Endpointへリプレー
 emoji: "🛡️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Jamf, ESET, Microsoft]
-published: ture
+published: true
 ---
 
 
