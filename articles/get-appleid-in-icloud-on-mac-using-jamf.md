@@ -12,7 +12,7 @@ iCloudに設定されているAppleIDの管理、みなさんどうされてい�
 
 ここではiCloudに設定したAppleIDをJamf Proを使って取得する方法を記します。
 
-### iCloudに設定しているAppleIDを取得するスクリプト
+## iCloudに設定しているAppleIDを取得するスクリプト
 
 ```
 #!/bin/sh
@@ -27,7 +27,7 @@ https://github.com/bp88/Jamf-Pro-Extension-Attributes/blob/master/iCloud%20Accou
 :::
 
 
-### Jamfで拡張属性を設定する
+## Jamfで拡張属性を設定する
 
 1. 設定 > コンピュータ管理 > 拡張属性 > 新規
 2. 適当な名前を付け、データタイプを `String`, インベントリ表示を `General`, 入力タイプを `Script` にして上記スクリプトを貼り付け保存する
