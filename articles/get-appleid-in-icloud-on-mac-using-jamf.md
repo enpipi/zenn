@@ -3,7 +3,7 @@ title: "Jamfを使ってiCloudに設定しているAppleIDを取得する"
 emoji: "💬"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Mac, Jamf, iCloud]
-published: false
+published: true
 ---
 
 # はじめに
