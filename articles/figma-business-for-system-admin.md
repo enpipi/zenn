@@ -6,6 +6,7 @@ topics: [Figma]
 published: true
 ---
 
+
 この記事は [corp-engr 情シスSlack（コーポレートエンジニア x 情シス）#2 Advent Calendar 2023](https://adventar.org/calendars/8869)　の5日目の記事です。
 
 # 1.はじめに
