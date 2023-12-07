@@ -28,15 +28,17 @@ Slackコネクトは、異なるワークスペース間でチャンネルを共
 
 認証が完了すると次回からSlackワークスペースのアイコンが表示されるようになり、コネクトを送付する側にとっても親切になりました。
 
-![](/images/slackconnect-verify-email-domains/slack-mail-domains-success.png)
+![slack-mail-domains-success.png](/images/slackconnect-verify-email-domains/slack-mail-domains-success.png)
 
 
 
 # 注意・補足
+
 :::message
 - ドメインは1つのワークスペースにしか登録できません。複数のワークスペースに登録できないので注意してください（EnterpriseGrildを除く）
 - 設定していないドメインのアカウントは引き続き制限なくコネクト先を選択できます
     - 設定したドメインのみSlackコネクトを承認できるという機能ではないので注意してください。
 :::
+
 # おわりに
 SlackコネクトはSlackを利用している企業間では非常に便利な機能であるので、ユーザーにリスクが発生しない環境を提供しましょう。
