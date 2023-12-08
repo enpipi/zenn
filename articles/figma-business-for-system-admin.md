@@ -222,7 +222,7 @@ Viewer-restrictedはViewerと違い、新たなファイルを作成するなど
 FigmaはSOC 2 Type II、ISMSをはじめとしたさまざまな外部認証を取得しています。
 https://www.figma.com/ja/security/
 
-また、Figmaは、適用されるすべてのデータ保護法と規制 (GDPRおよびCCPAなど) も遵守すると明記しています。
+また、Figmaは、適用されるすべてのデータ保護法と規制（GDPRおよびCCPAなど）も遵守すると明記しています。
 https://www.figma.com/ja/privacy/
 
 
