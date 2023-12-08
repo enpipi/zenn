@@ -27,6 +27,9 @@ Figmaは非常に強力なツールですが、システム管理者からみる
 フリー・プロプランについてはこちらをご覧ください。
 https://note.com/enpipi_work/n/n41499d921b8d
 
+エンタープライズプランについてはこちらをご覧ください。
+https://zenn.dev/enpipi/articles/figma-enterprise-for-system-admin
+
 本記事では、デザイナー向けの機能については割愛いたします🙏
 
 また、執筆に誤りなどあればぜひご指摘ください。
