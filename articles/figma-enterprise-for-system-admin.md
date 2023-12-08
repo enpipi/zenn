@@ -144,7 +144,7 @@ Viewer-Restrictedを初回から設定すれば彼らは自らEditorになるこ
 
 ただし、承認画面にはオブジェクト単位でしか情報が記載されていないので承認に必要な情報に不足感があります。
 
-![confirm-guest-access](/images/figma-enterprise-for-system-admin/confirm-guest-access.png)
+![confirm-guest-access](/images/figma-enterprise-for-system-admin/confirm-guest-access.jpg)
 
 通知欄の情報は本件に限らず最低限しかなく、もう少し詳細情報が欲しくなることがよくあります。メール通知には少しだけ詳しく記載されているので、通知機能については改善を期待しています。
 
