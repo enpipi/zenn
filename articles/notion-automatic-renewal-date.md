@@ -17,7 +17,7 @@ published: false
 ## できたもの
 今日の日付が契約日を過ぎていた場合に年次は一年後、月次は一ヶ月後を算出する。
 
-![notion-database-renewal-date](/image/notion-automatic-renewal-date/notion-database-renewal-date.jpg)
+![notion-database-renewal-date](/images/notion-automatic-renewal-date/notion-database-renewal-date.jpg)
 
 
 ## できること
@@ -76,7 +76,7 @@ chatGPT 先生に言語化してもらいました。
 > この関数中の `replaceAll("-","").parseDate()` は、日付形式を整形し、正常な日付として Notion に認識させるために使用しています。また、`formatDate()` 関数は、日付を特定のフォーマットに変換するために使用されています
 
 ## [オプション] フィルター、ソートをかける
-/image/notion-automatic-renewal-date/notion-filter-sample.jpg
+![notion-filter-sample](/images/notion-automatic-renewal-date/notion-filter-sample.jpg)
 
 最後に表示するサービスを直近のものだけに絞る、更新日順にソートなどして完成です。
 
@@ -84,4 +84,4 @@ chatGPT 先生に言語化してもらいました。
 
 関数酷使は大変だ。手段が目的にならないようにしたいですが、notion 芸人するのは楽しいですね。
 
-次回はNotion databease APIを使って通知をするgasでも作ろうと思います。
+次回はNotion database APIを使って通知をするgasでも作ろうと思います。
