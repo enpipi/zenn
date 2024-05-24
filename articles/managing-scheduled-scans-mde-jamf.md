@@ -1,5 +1,5 @@
 ---
-title: "Jamf Proを使ったMDEの定期スキャン管理"
+title: "Jamf ProのMDE用CustomSchemaを修正して定期スキャンに対応させた"
 emoji: "🕒"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [JamfPro,Security,Microsoft,Tech]
@@ -8,30 +8,53 @@ publication_name: "visasq"
 ---
 
 
-## ゴール
-この記事を読めば、Jamf Proを使ったMicrosoft Defender for Endpoint（MDE）の定期スキャンを管理する方法がわかります。
-
 ## はじめに
-Jamf Proを使用してMDEの設定を管理することができますが、定期スキャンについても同様に管理することができます。今回、予期せぬところで問題に遭遇したため、その知見を共有します。
+Microsoft Defender（MDE）は、MDMで設定を管理でき、Jamf Pro向けにCustomSchemaを提供しています。Microsoftは、このCustomSchemaを使ったJamf ProでのMDE導入方法を公開しています。多くの企業がこのCustomSchemaを利用しているのではないでしょうか。
 
-前提として、MDEが導入されており、Jamf Proが利用可能であることを想定しています。
+この記事では、MDEの定期スキャンに対応したCustomSchemaと利用手順を紹介します。
 
-## 問題の概要
-多くの方は、[こちらのドキュメント](https://learn.microsoft.com/ja-jp/defender-endpoint/mac-jamfpro-policies#3b-set-policies-using-jamf) を参照して[schema.json](https://github.com/microsoft/mdatp-xplat/tree/master/macos/schema/schema.json)を使ってMDEの設定を行ったのではないでしょうか。しかし、その状態で[定期スキャンの設定](https://learn.microsoft.com/ja-jp/defender-endpoint/mac-schedule-scan) をそのまま実装しても、期待通りに動作しません。
+## 問題の背景
 
-### 原因
-どちらの設定も`com.microsoft.wdav`ドメインの構成プロファイルを使用するため、設定を一つにマージする必要があります。
-しかし、現状の[schema.json](https://github.com/microsoft/mdatp-xplat/tree/master/macos/schema/schema.json) には定期スキャンの設定が含まれていません。
+以下ドキュメントを参考にMDEの定期スキャンを構築しましたが、スケジュールした時刻にスキャンが行われず、期待通りに動作しませんでした。
+https://learn.microsoft.com/ja-jp/defender-endpoint/mac-schedule-scan
 
-## 解決策
-上記の[schema.json](https://github.com/microsoft/mdatp-xplat/tree/master/macos/schema/schema.json)に定期スキャンの設定を追加したものが[こちら](https://github.com/enpipi/mdatp-xplat/blob/master/macos/schema/schema.json)です。PRも出しましたが、この記事の執筆時点ではレビュー待ちのため、自己責任でご利用ください。
+そもそも `com.microsoft.wdav` の設定は、[Jamf Pro で macOS ポリシーでMicrosoft Defender for Endpointを設定する - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/ja-jp/defender-endpoint/mac-jamfpro-policies#3b-set-policies-using-jamf)に紹介される[schema.json](https://github.com/microsoft/mdatp-xplat/tree/master/macos/schema/schema.json)で管理していました。
+
+
+もしかしたら、`com.microsoft.wdav` の設定が2つあると認識されないのかもしれません。
+そこで、定期スキャンをCustomSchemaに対応させることを検討しました。
+これにより、設定変更が容易になり、設定の一元管理が可能になります。
+
+## 成果物
+定期スキャンに対応させたCustomSchemaです。
+
+:::message
+必ずご自身でも検証してください。不備があればぜひプルリクエストしてください。
+:::
+
+https://github.com/enpipi/mdatp-xplat/blob/master/macos/schema/schema.json
 
 ## 利用方法
-以下の手順は[定期スキャンの設定](https://learn.microsoft.com/ja-jp/defender-endpoint/mac-schedule-scan)に準拠しています。詳細な説明や他のオプションについては上記記事を参照してください。ここでは例に基づいた構成方法を記載します。
+ここでは定期スキャンの設定のみ紹介します。既にCustomSchemaを使って設定構築済みの場合、該当の構成プロファイルを新たに作り直す必要があります。
 
-1. **Jamf Proで構成プロファイルを開き、上記のjsonファイルをアップロードします。**
-2. **Future > ScheduledScanを有効化する。**
-   - `ScheduledScan`にチェックを入れ、`timeofday`に値を設定します。
+以下の手順は [Microsoftの公式ドキュメント](https://learn.microsoft.com/ja-jp/defender-endpoint/mac-schedule-scan) に記載の内容をもとにしています。詳細や他のオプションについては上記記事を参照してください。
+
+ここでは毎日14:40に、除外を無視して低優先度でクイックスキャンをする設定方法を例に利用手順を紹介します。
+
+1. Jamf Proで構成プロファイルを開き、上記のjsonファイルをアップロードします。
+2. `features > ScheduledScan`を有効にして `ScheduledScan = enabled` にします。
+3. `ScheduledScan`にチェックを入れて `ignoreExclusions`, `lowPriorityScheduledScan`,  `DailyConfiguration` の `timeOfDay` を表示します。
+4. それぞれ以下設定にして保存します。
+   - `ignoreExclusions = enabled`
+   - `lowPriorityScheduledScan= enabled`
+   - `timeOfDay = 880`
+
+### timeOfDayについて補足
+スケジュールされたスキャンを実行する時刻を、0:00から起算して1分刻みで指定します。例えば16:00の場合は16*60 = 960となります。時刻はコンピュータのローカル時刻を指します。
+
+:::message alert
+スケジュールされたスキャンは、デバイスがスリープしている間はスケジュールされた時間に実行されません。デバイスの電源がオフになっている場合、スキャンは次のスケジュールされたスキャン時間に実行されます。
+:::
 
 ## 配信後の確認方法
 設定を配信したら、実際にエンドポイント側で以下のコマンドを実行して確認します。
@@ -39,6 +62,7 @@ Jamf Proを使用してMDEの設定を管理することができますが、定
 1. `mdatp health --details` を実行し、`scheduled_scan`の設定箇所が`[managed]`になっていることを確認します。
 2. 設定した時間を過ぎたら、`mdatp scan list` を実行し、スキャンが実行されたことを確認します。
 
----
+## おわりに
+CustomSchemaがOSSで公開されていたのでやりたいことがより良い形で対応できました。今回、これがきっかけで初めてプルリクエストも出しました。執筆時点ではレビュー待ちですが、もし反映されたら記事内で修正させていただきます。
 
 以上がJamf Proを使用したMDEの定期スキャン管理の方法です。正しく設定すれば、定期スキャンを効率的に管理することができます。
