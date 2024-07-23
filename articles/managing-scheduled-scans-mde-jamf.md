@@ -13,6 +13,13 @@ Microsoft Defender for Endpoint（MDE）は、MDMで設定を管理でき、Jamf
 
 この記事では、MDEの定期スキャンに対応したCustomSchemaと利用手順を紹介します。
 
+
+:::message alert
+2024/07/03に公式のschema.jsonがScehduledScanに対応しました。
+https://github.com/microsoft/mdatp-xplat/blob/master/macos/schema/schema.json
+:::
+
+
 ## 問題の背景
 
 以下ドキュメントを参考にMDEの定期スキャンを構築しましたが、スケジュールした時刻にスキャンが行われず、期待通りに動作しませんでした。
@@ -26,13 +33,14 @@ https://learn.microsoft.com/ja-jp/defender-endpoint/mac-schedule-scan
 これにより、設定変更が容易になり、設定の一元管理が可能になります。
 
 ## 成果物
-定期スキャンに対応させたCustomSchemaです。
+~~定期スキャンに対応させたCustomSchemaです。~~
+~~https://github.com/enpipi/mdatp-xplat/blob/master/macos/schema/schema.json~~
 
-:::message
-必ずご自身でも検証してください。不備があればぜひプルリクエストしてください。
+:::message alert
+2024/07/03に公式のschema.jsonがScehduledScanに対応しました。
+https://github.com/microsoft/mdatp-xplat/blob/master/macos/schema/schema.json
 :::
 
-https://github.com/enpipi/mdatp-xplat/blob/master/macos/schema/schema.json
 
 ## 利用方法
 ここでは定期スキャンの設定のみ紹介します。既にCustomSchemaを使って設定構築済みの場合、該当の構成プロファイルを新たに作り直す必要があります。
@@ -43,7 +51,7 @@ https://github.com/enpipi/mdatp-xplat/blob/master/macos/schema/schema.json
 
 1. Jamf Proで構成プロファイルを新規作成します。
 2. アプリケーションとカスタム設定 > 外部アプリケーション > 追加を選択し、カスタムスキーマを使用します。
-3. 環境設定ドメインに `com.microsoft.wdav` と入力し、スキーマを追加から[今回のschema.json](https://github.com/enpipi/mdatp-xplat/blob/master/macos/schema/schema.json)をアップロードします。
+3. 環境設定ドメインに `com.microsoft.wdav` と入力し、スキーマを追加から[schema.json](https://github.com/microsoft/mdatp-xplat/blob/master/macos/schema/schema.json)をアップロードします。
 4. `features > ScheduledScan`を有効にして `ScheduledScan = enabled` にします。
 5. `ScheduledScan`にチェックを入れて `ignoreExclusions`, `lowPriorityScheduledScan`,  `DailyConfiguration` の `timeOfDay` を表示します。
 6. それぞれ以下設定にして保存します。
