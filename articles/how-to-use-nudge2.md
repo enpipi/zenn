@@ -101,20 +101,8 @@ CVEが含まれないアップデートをNudgeの対象外にすることもで
     - `userInterface`の `showDaysRemainingToUpdate`をfalseに設定してください。
 
 
-## 期限日の設定
-Nudge2.0から悪用されたCVEの修正かどうかなどアップデートの内容によって期限日を変更することができます。
-
-| アップデート内容 | Key | default値 |
-| :----: | :----: | :----: |
-| 悪用が確認されたCVEを含むメジャーアップグレード | `activelyExploitedCVEsMajorUpgradeSLA` | 14日 |
-| 悪用が確認されたCVEを含むマイナーアップデート | `activelyExploitedCVEsMinorUpdateSLA` | 14日 |
-| 悪用が確認されていないCVEを含むメジャーアップグレード | `nonActivelyExploitedCVEsMajorUpgradeSLA` | 21日 |
-| 悪用が確認されていないCVEを含むマイナーアップデート | `nonActivelyExploitedCVEsMinorUpdateSLA` | 21日 |
-| CVEが含まれないメジャーアップグレード | `activelyExploitedCVEsMajorUpgradeSLA` | 28日 |
-| CVEが含まれないメジャーアップグレード | `activelyExploitedCVEsMajorUpgradeSLA` | 28日 |
-
 ## JamfProを用いたNudge2.0の構成
-Nudge 2.0に対応したCustomSchemaを持ちます。
+構成にはNudge 2.0に対応したCustomSchemaを用いると便利です。
 [nudge/Schema/jamf/com.github.macadmins.Nudge.json at main · macadmins/nudge · GitHub](https://github.com/macadmins/nudge/blob/main/Schema/jamf/com.github.macadmins.Nudge.json)
 
 
