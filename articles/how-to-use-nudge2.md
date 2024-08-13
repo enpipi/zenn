@@ -3,7 +3,7 @@ title: "Nudge2.0触ってみた"
 emoji: "🔔"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [JamfPro,Nudge]
-published: false
+published: true
 publication_name: "visasq"
 ---
 
