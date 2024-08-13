@@ -24,7 +24,7 @@ https://blog.intracker.net/archives/4203
     - [Using Markdown with Apple News Format | Apple Developer Documentation](https://developer.apple.com/documentation/apple_news/apple_news_format/components/using_markdown_with_apple_news_format#2975763)
 - [SOFA](https://sofa.macadmins.io/)に対応しました。
     - SOFAに対応したことで、常に最新のmacOSのバージョンを自動で確認し、Nudgeイベントをトリガーできるようになりました
-    - 悪用されたCVEの有無等を考慮して期限を設定できるようになりました
+    - 悪用されたCVEの有無等を考慮して期限を振り分けできるようになりました
 - 検証用のコマンドライン引数の拡充
   - コマンドラインで期限日やハードウェア、OSを引数で指定できるようになりました。これにより検証に用いた端末とは異なる環境での検証が容易になりました
 - その他できるようになったこと
@@ -48,6 +48,8 @@ https://sofa.macadmins.io/getting-started.html
 :::
 
 ## JamfProを用いたNudge2.0の構成プロファイルの作成
+ここではNudge2.0から追加された機能の設定方法を紹介します。
+`acceptableApplicationBundleIDs`等のNudge 1.xからある機能については割愛します。
 
 ### STEP1: カスタムスキーマを用いたプロファイルの設定
 Jamf Proにログインし、新規構成プロファイルを作成します。
@@ -72,7 +74,7 @@ Jamf Proにログインし、新規構成プロファイルを作成します。
  - `latest-minor`： 現在のメジャー・リリースにとどまり、最新のマイナー・アップデートを参照します
 
 :::message
-サポート対象外デバイスの場合、次のような画面が表示されるようになります。
+サポート対象外デバイスの場合、次のような画面が表示されるようになります。（文言は一部変更可能です）
 ![nudge-unsupported-device](/images/how-to-nudge2/nudge-unsupported-device.png)
 :::
 
@@ -103,7 +105,7 @@ CVEが含まれないアップデートをNudgeの対象外にできます。
 `userExperience`配下にある`nudgeMajorUpgradeEventLaunchDelay`,`nudgeMinorUpdateEventLaunchDelay`に遅延させたい日数を定義してください。
 
 :::message
-`nudgeMajorUpgradeEventLaunchDelay``nudgeMinorUpdateEventLaunchDelay`を設定すると動作確認時にコマンドラインからNudgeイベントを即時実行できくなるので注意が必要です。
+`nudgeMajorUpgradeEventLaunchDelay`, `nudgeMinorUpdateEventLaunchDelay`を設定すると動作確認時にコマンドラインからNudgeイベントを即時実行できくなるので注意が必要です。
 :::
 
 ### STEP5: 【任意】 表示情報の調整
@@ -115,8 +117,10 @@ CVEが含まれないアップデートをNudgeの対象外にできます。
   - 更新期限と読み替えて貰えれば大丈夫です。
 - `showActivelyExploitedCVEs`
   - Actively Exploited CVEsの表示・非表示
+  - 悪用確認済みのCVEを含む場合にTrueになります。
 - `showDaysRemainingToUpdate`
   - 更新までの残り日数(Days Remaining To Update:)の表示・非表示
+  - `showRequiredDate`とどちらかを表示することをおすすめします。
 
 
 
@@ -179,8 +183,6 @@ https://github.com/macadmins/nudge/wiki/Command-Line-Arguments
 | `-simulate-date "2024-08-01T08:00:00Z"` | 実行日時以外の日時を用いる。フォーマットは `YYYY-MM-ddTHH:mm:ssZ`です |
 | `-disable-random-delay` | udge 2.0ではデフォルトで有効になっているRandom Delayを回避する。動作確認では必須の引数 |
 
-https://github.com/macadmins/nudge/wiki/Command-Line-Arguments
-
 
 例：OSサポート外のデバイスでのNudgeの動作確認
 ```
@@ -198,7 +200,7 @@ https://github.com/macadmins/nudge/wiki/Command-Line-Arguments
   - https://github.com/macadmins/nudge/wiki/User-Deferrals#testing-and-resetting-nudge
 - プロファイルの設定不備の確認
   - `optionalFeatures` > `utilSOFAFeed` は `true`か
-  - `nudgeMajorUpgradeEventLaunchDelay``nudgeMinorUpdateEventLaunchDelay`を設定していないか
+  - `nudgeMajorUpgradeEventLaunchDelay`, `nudgeMinorUpdateEventLaunchDelay`を設定していないか
    - 設定していた場合、設定を外して試す
 - 実行時の引数
   -  `-disable-random-delay` を利用しているか
