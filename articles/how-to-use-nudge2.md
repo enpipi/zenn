@@ -105,7 +105,7 @@ CVEが含まれないアップデートをNudgeの対象外にできます。
 `userExperience`配下にある`nudgeMajorUpgradeEventLaunchDelay`,`nudgeMinorUpdateEventLaunchDelay`に遅延させたい日数を定義してください。
 
 :::message
-`nudgeMajorUpgradeEventLaunchDelay`, `nudgeMinorUpdateEventLaunchDelay`を設定すると動作確認時にコマンドラインからNudgeイベントを即時実行できくなるので注意が必要です。
+`nudgeMajorUpgradeEventLaunchDelay`, `nudgeMinorUpdateEventLaunchDelay`のような開始遅延処理を設定する場合は動作確認時に `-simulate-date` を使いましょう。
 :::
 
 ### STEP5: 【任意】 表示情報の調整
@@ -180,7 +180,7 @@ https://github.com/macadmins/nudge/wiki/Command-Line-Arguments
 | --- | --- |
 | `-simulate-os-version "14.4.1"` | 指定したOSバージョンでの動作を確認する |
 | `-simulate-hardware-id "J516cAP"` | 指定したハードウェアのデバイスIDにオーバーライドする<br>必要なOSバージョンをサポートしていない端末の検証に用いる |
-| `-simulate-date "2024-08-01T08:00:00Z"` | 実行日時以外の日時を用いる。フォーマットは `YYYY-MM-ddTHH:mm:ssZ`です |
+| `-simulate-date "2024-08-01T08:00:00Z"` | 実行日時以外の日時を用いる。イベント開始日を遅延処理している場合や期限切れの場合の動作確認に有効です。フォーマットは `YYYY-MM-ddTHH:mm:ssZ` |
 | `-disable-random-delay` | udge 2.0ではデフォルトで有効になっているRandom Delayを回避する。動作確認では必須の引数 |
 
 
