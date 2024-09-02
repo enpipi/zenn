@@ -14,7 +14,7 @@ Nudgeがv2.0をリリースしました。
 https://github.com/macadmins/nudge/wiki/v2.0-features
 
 :::message
-- 2024/09/03: MarkdownについてBlock Level Markdown非対応である旨を追記しました。
+- 2024/09/03: MarkdownについてBlock Level Markdown Syntaxが非対応である旨を追記しました。
 :::
 
 
@@ -26,7 +26,7 @@ https://blog.intracker.net/archives/4203
 ## Nudge2.0からの大きな変更点
 - Nudge 2.0からmacOS 11はサポート外になりました。
 - 画面内の説明文がMarkdownに対応しました。利用できるMarkdwon構文は以下記事のとおりです。
-   - 2024/09/02追記: MarkdownサポートしているのはText Level Markdownのみです。Block Level Markdownには対応していなため見出しやリスト表記は使えません。詳しくは以下ドキュメントのText Level Markdownの章を確認ください。
+   - 2024/09/02追記: MarkdownサポートしているのはText-Level Markdown Syntaxのみです。Block Level Markdown Syntaxには対応していなため見出しやリスト表記は使えません。詳しくは以下ドキュメントのText Level Markdown Syntaxの章を確認ください。
       - [Using Markdown with Apple News Format | Apple Developer Documentation](https://developer.apple.com/documentation/apple_news/apple_news_format/components/using_markdown_with_apple_news_format#2975763)
 - [SOFA](https://sofa.macadmins.io/)に対応しました。
     - SOFAに対応したことで、常に最新のmacOSのバージョンを自動で確認し、Nudgeイベントをトリガーできるようになりました
