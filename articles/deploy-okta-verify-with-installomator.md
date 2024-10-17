@@ -13,10 +13,13 @@ InstallomatorではOkta Verifyが未対応ですが、配布する方法がMacAd
 Okta Verifyは毎月更新されておりアプリの更新を自動的に強制することを推奨しています。
 そのため、macOSへのOkta Verifyの配布についてApple Business Managerを用いた配布（以下、VPP）が紹介されています。
 https://help.okta.com/oie/ja-jp/content/topics/identity-engine/devices/ov-install-options-macos.htm
-しかし、VPPの仕組みを用いたアプリケーションの更新は安定しておらず、他の手段を構築するのがJamf Proにおいては主流となっています。
+
+VPPの仕組みを用いたアプリケーションの更新は安定しておらず、他の手段を構築するのがJamf Proにおいては主流となっています。
 代替手段として最も有名なものはInstallomatorです。
+
 Jamf Proでは多くのユーザーがInstallomatorを中心にアプリケーションの配布をしているのではないでしょうか。
 https://github.com/Installomator/Installomator
+
 しかし、Okta VerifyはInstallomatorに対応していません。
 Okta VerifyのpkgをダウンロードするURLには契約しているOktaのサブドメインが含まれているため、OSSでは扱えないという事情があります。
 >https://subdomain-admin.okta.com/artifacts/OKTA_VERIFY_MACOS/[version]/OktaVerify-[version].pkg
