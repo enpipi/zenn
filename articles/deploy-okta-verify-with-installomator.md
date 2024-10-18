@@ -40,6 +40,7 @@ oktaverify)
     name="Okta Verify"
     type="pkg"
     oktaTenant={yoursubdomain}.okta.com
+    BLOCKING_PROCESS_ACTION=ignore
     if [[ -z $oktaTenant ]]; then
         cleanupAndExit "Okta Tenant not set" ERROR
     fi
