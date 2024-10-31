@@ -51,5 +51,6 @@ oktaverify)
 ```
 
 :::message
-Setup Managerでは利用できません。Setup Manager内部にInstallomatorが内蔵されているためです。
+~~Setup Managerでは利用できません。Setup Manager内部にInstallomatorが内蔵されているためです。~~
+Setup ManagerでもJamfのポリシーを使えば利用できるとのことでした。 @hikkyさんご指摘ありがとうございました！
 :::
