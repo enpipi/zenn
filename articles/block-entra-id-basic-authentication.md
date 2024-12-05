@@ -8,8 +8,14 @@ publication_name: "visasq"
 ---
 
 
+この記事は、Cyber-sec+ Advent Calendar 2024の6日目の記事です。
+https://adventar.org/calendars/10158
 
-この記事では、PowerShellを使ってEntraIDのベーシック認証（基本認証）をブロックし、組織のセキュリティを強化する方法を解説します。
+前日の5日目はキタジーさんの記事でした。
+https://note.com/calm_tern219/n/n5709282a7c9d
+
+
+PowerShellを使ってEntraIDのベーシック認証（基本認証）をブロックし、組織のセキュリティを強化する方法を解説します。
 
 ## 免責事項
 - 本記事は[Securing Office 365 with Okta](https://www.okta.com/resources/whitepaper/securing-office-365-with-okta/)を参考にしています。
