@@ -161,6 +161,10 @@ Set-OrganizationConfig -DefaultAuthenticationPolicy "Block Basic Authentication"
 ### 4. トークンの無効化（必要な場合）
 不正アクセスの可能性がある場合は、トークンを無効化します。
 
+:::message alert
+トークンのRevokeを実行すると、すべてのデバイスで再認証が必要になります。
+:::
+
 #### 4.1 Graph APIへの接続
 ```powershell
 Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All"
