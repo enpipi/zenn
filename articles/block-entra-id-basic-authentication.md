@@ -368,7 +368,7 @@ https://help.okta.com/oie/ja-jp/content/topics/apps/office365/hybrid-aad-joined-
 
 
 ## 参考リンク
-- [条件付きアクセスを使用してレガシ認証をブロックすることに関する記事 - Microsoft Entra ID | Microsoft Learn](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/policy-block-legacy-authentication)
-- [Exchange Online で基本認証を無効にする | Microsoft Learn](https://learn.microsoft.com/ja-jp/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)
-- [Windows の Web サインイン | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/web-sign-in/?tabs=intune)
-- [Enable or disable POP3, IMAP, MAPI, Outlook Web App or ActiveSync in Microsoft 365 - Exchange | Microsoft Learn](https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/pop3-imap-owa-activesync-office-365)
+https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/policy-block-legacy-authentication
+https://learn.microsoft.com/ja-jp/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online
+https://learn.microsoft.com/ja-jp/windows/security/identity-protection/web-sign-in/?tabs=intune
+https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/pop3-imap-owa-activesync-office-365
