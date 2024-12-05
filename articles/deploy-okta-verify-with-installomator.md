@@ -35,7 +35,7 @@ https://macadmins.slack.com/archives/C013HFTFQ13/p1716324782514089
 installomater.shに以下の記述を追記します。`{yoursubdomain}`を契約しているOktaのサブドメインに置換してください。
 本スクリプトはアプリケーションのラベルがアルファベット順に並んでいるので、順番に合う場所に記述をしましょう。
 
-```
+```shell
 oktaverify)
     name="Okta Verify"
     type="pkg"
