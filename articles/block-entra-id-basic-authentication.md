@@ -3,7 +3,7 @@ title: "PowerShellを使ってEntraIDのベーシック認証をブロックし�
 emoji: "🧱"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Windows","Security","PowerShell","EntraID","Office365"]
-published: false
+published: true
 publication_name: "visasq"
 ---
 
