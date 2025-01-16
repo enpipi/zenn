@@ -1,13 +1,12 @@
 ---
 title: "Keeper Commanderで管理者承認を自動化する方法"
-emoji: "✨"
+emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Keeper]
-published: false
+published: true
+publication_name: "visasq"
 ---
 
-
-# Keeper Commanderで管理者承認を自動化する方法
 
 ## 1. はじめに
 
