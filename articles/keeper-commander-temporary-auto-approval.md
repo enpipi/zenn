@@ -1,5 +1,5 @@
 ---
-title: "Keeper Commanderで管理者承認を自動化する"
+title: "Keeper Commanderの管理者承認を自動化する機能を使ってみた"
 emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Keeper]
@@ -11,6 +11,7 @@ publication_name: "visasq"
 ## 1. はじめに
 
 Keeperは、セキュリティを理由に新規デバイスの場合等で管理者による承認が必要となります。
+本記事では、Keeperオートメーターサービスを使わずに、X秒ごとに承認を実行するKeeper Commander CLIの自動化モードを使ってみたという記事です。
 
 >### 5. SSOプロバイダを保護する
 >
@@ -32,6 +33,7 @@ Keeper CommanderはKeeperに対するコマンドラインおよびSDKのイン�
 
 Keeper CommanderはX秒ごとに承認を実行する自動化モードがサポートされています。
 この機能により、ローカル環境で自動承認を実行できるため必要なときだけ、自動承認ができるようになります。
+
 
 オンボーディングや、Keeper導入時など多くのユーザーのデバイスを承認しなければならない場合に効果的です。
 
