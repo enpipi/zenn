@@ -65,7 +65,7 @@ https://docs.keeper.io/jp/secrets-manager-jp/commander-cli/commander-installatio
 3. 管理者承認のため、`2` , `r` を入力
 4. ログインに成功すると、`Not logged in>` が `[My Vault>` に変わります
 
-ターミナルでの流れ
+一連の流れ
 
 ```shell
 Not logged in> login
