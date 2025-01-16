@@ -1,5 +1,5 @@
 ---
-title: "Keeper Commanderで管理者承認を自動化する方法"
+title: "Keeper Commanderで管理者承認を自動化する"
 emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Keeper]
