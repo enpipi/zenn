@@ -22,7 +22,7 @@ https://docs.keeper.io/jp/enterprise-guide-jp/recommended-security-settings#id-5
 
 ### 1.1. Keeperオートメーターサービスは構築が手間
 
-上記引用にもあるようにKeeperオートメーターサービスを用いれば管理者承認をバイパスできます。しかし、Google Cloud Run等で環境を構築する必要があるため、環境構築に一定の工数が必要となります。
+上記引用にもあるようにKeeperオートメーターサービスを用いれば管理者承認をバイパスできます。しかし、GCPのCloud Run等で環境を構築する必要があるため、環境構築と維持に一定の工数が必要となります。
 
 https://docs.keeper.io/jp/keeper-sso-connect-cloud-jp/device-approvals/automator
 
