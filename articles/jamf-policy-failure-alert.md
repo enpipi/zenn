@@ -4,7 +4,7 @@ emoji: "😺"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Jamf Pro]
 published: false
-publication_name:"notahotel"
+publication_name: "notahotel"
 ---
 
 NOT A HOTEL Biz Techチームの@enpipiです。
