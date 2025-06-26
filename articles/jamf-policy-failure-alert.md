@@ -1,18 +1,19 @@
 ---
 title: "Jamf Proのポリシー実行に失敗したらSlackに通知する"
-emoji: "😺"
+emoji: "🔔"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Jamf Pro]
 published: false
 publication_name: "notahotel"
 ---
 
-![](/images/jamf-policy-failure-alert/jamf-policy-failure-alert-slack.png)
 
 NOT A HOTEL Biz Techチームの@enpipiです。
 
 Jamf Proでポリシーを設定した後、放置されがちですが、イベントフックを活用することでポリシーの失敗を検知できるようになります。
 この記事では、通知によって得られた成果と、Zapierを使ってJamf Proのポリシー実行失敗をSlackに通知する方法を紹介します。
+
+![](/images/jamf-policy-failure-alert/jamf-policy-failure-alert-slack.png)
 
 ## この記事でわかること
 
@@ -119,6 +120,8 @@ Slackのフォーマットに合わせて次のようにしています。
 > - *実行デバイス:* <https://{yourdomain}.jamfcloud.com/computers.html?id={id}|{Computer Device Name}>
 > - *実行者:* {Computer Email Address}
 ```
+
+![](/images/jamf-policy-failure-alert/jamf-policy-failure-alert-slack.png)
 
 通知されたら、ログをAIに入れて確認するなどすれば楽に原因がわかります。
 
