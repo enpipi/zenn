@@ -7,6 +7,8 @@ published: false
 publication_name: "notahotel"
 ---
 
+![](/images/jamf-policy-failure-alert/jamf-policy-failure-alert-slack.png)
+
 NOT A HOTEL Biz Techチームの@enpipiです。
 
 Jamf Proでポリシーを設定した後、放置されがちですが、イベントフックを活用することでポリシーの失敗を検知できるようになります。
@@ -104,9 +106,9 @@ Zapierを使って実装しており、Slackからすぐに情報にアクセス
 
 ポリシーの名称を取得するには、以下のAPIエンドポイントを使用します。
 `https://{yourdomain}.jamfcloud.com/JSSResource/policies/id/{id}`
-[Finds policies by ID](https://developer.jamf.com/jamf-pro/reference/findpoliciesbyid)
+https://developer.jamf.com/jamf-pro/reference/findpoliciesbyid
 
-### 4\. ポリシー、デバイス、実行者のURLをSlackに通知
+### 4. ポリシー、デバイス、実行者のURLをSlackに通知
 
 Slackのフォーマットに合わせて次のようにしています。
 
@@ -117,6 +119,8 @@ Slackのフォーマットに合わせて次のようにしています。
 > - *実行デバイス:* <https://{yourdomain}.jamfcloud.com/computers.html?id={id}|{Computer Device Name}>
 > - *実行者:* {Computer Email Address}
 ```
+
+通知されたら、ログをAIに入れて確認するなどすれば楽に原因がわかります。
 
 ## まとめ
 
