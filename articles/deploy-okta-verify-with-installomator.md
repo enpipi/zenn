@@ -7,6 +7,11 @@ published: true
 publication_name: "visasq"
 ---
 
+:::message
+本記事よりも、良いやり方が紹介されていました！
+https://kenchan0130.github.io/post/2024-12-09-2
+:::
+
 InstallomatorではOkta Verifyが未対応ですが、配布する方法がMacAdminsで紹介されていたので、こちらで紹介します。
 
 ## 背景
