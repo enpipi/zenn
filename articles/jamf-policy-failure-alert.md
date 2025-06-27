@@ -8,7 +8,7 @@ publication_name: "notahotel"
 ---
 
 
-NOT A HOTEL Biz Techチームの[@enpipi](https://x.com/enpipi)です。
+NOT A HOTEL Biz Techチームの[@enpipi](https://x.com/enpipi) です。
 
 Jamf Proでポリシーを設定した後、放置されがちですが、イベントフックを活用することでポリシーの失敗を検知できるようになります。
 この記事では、通知によって得られた成果と、Zapierを使ってJamf Proのポリシー実行失敗をSlackに通知する方法を紹介します。
