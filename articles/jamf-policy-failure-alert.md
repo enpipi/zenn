@@ -3,12 +3,12 @@ title: "Jamf Proのポリシー実行に失敗したらSlackに通知する"
 emoji: "🔔"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Jamf Pro]
-published: false
+published: true
 publication_name: "notahotel"
 ---
 
 
-NOT A HOTEL Biz Techチームの@enpipiです。
+NOT A HOTEL Biz Techチームの[@enpipi](https://x.com/enpipi)です。
 
 Jamf Proでポリシーを設定した後、放置されがちですが、イベントフックを活用することでポリシーの失敗を検知できるようになります。
 この記事では、通知によって得られた成果と、Zapierを使ってJamf Proのポリシー実行失敗をSlackに通知する方法を紹介します。
