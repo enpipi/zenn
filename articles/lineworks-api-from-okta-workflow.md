@@ -27,8 +27,7 @@ LINE WORKSでは、プランによって実行できるAPIが異なります。
 > フリープランでは、user.read、group.read、orgunit.read、user.email.read、user.profile.read のみが利用できます。directory、directory.read、user、group、orgunit は利用できません。
 
 
-プラン別の利用可能APIについては、以下を参照してください：
-参考：[OAuth Scopes | Developers](https://developers.worksmobile.com/jp/docs/auth-scope#line-works)
+プラン別の利用可能APIについては、[OAuth Scopes | Developers](https://developers.worksmobile.com/jp/docs/auth-scope#line-works) を参照してください：
 
 ### Directory APIでドメインのリソースを管理する場合は、Service Account認証を使用する
 
@@ -62,13 +61,12 @@ https://forum.worksmobile.com/jp/
 ## 全体の流れ
 
 1. 事前準備
-2. JSON Web Token（JWT）の署名〜Access Tokenの取得
+2. JSON Web Token（JWT）の生成〜Access Tokenの取得
 3. 実行してみる
 
-### 事前準備
+### 1. 事前準備
 
-LINE WORKS Developer Consoleにサインインします：
-https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view
+[LINE WORKS Developer Console}(https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view)にサインインします。
 
 1. アプリの新規追加から、新しいアプリを作成します
 2. アプリ名等の設定をしたら **[保存]** を押します
@@ -80,10 +78,10 @@ https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view
    - Private Key
 5. **[変更]** を押します
 
-### JSON Web Token（JWT）の署名〜Access Tokenの取得
+### 2. JSON Web Token（JWT）の生成〜Access Tokenの取得
 
 
-LINE WORKSでユーザー作成のAPIを実行するには、Access Tokenが必要です。Access Tokenの発行にはJWTを使用して署名する必要があります。
+LINE WORKSでユーザー作成のAPIを実行するには、Access Tokenが必要です。Access Tokenの発行にはJWTを生成する必要があります。
 Service Account認証は、JSON Web Token（以降、JWT）を使用してアプリ専用の仮想管理者アカウントで認証を行い、Access Tokenを発行してAPIを利用する方法です。
 
 https://developers.worksmobile.com/jp/docs/auth-jwt
@@ -115,7 +113,6 @@ https://developers.worksmobile.com/jp/docs/auth-jwt
    - Body : 2で作成した `Construct` の出力 `output`
    - Connection : 使わないので何でも良いです
 
-
 :::message
 JSON Web Token（JWT）生成時の `expires_in` は3600秒にする
 ドキュメントでは、`expires_in` は設定に従うと記載がありますが、検証した際には設定に関わらず3600秒にしないとエラーになりました。
@@ -124,11 +121,11 @@ JSON Web Token（JWT）生成時の `expires_in` は3600秒にする
 > ・1 hour (3600 秒)
 > ・24 hours (86400 秒)
 > 設定された有効期限が経過すると、自動的に満了する。
+
 参考：[Service Account 認証 (JWT) > Response Body (JSON)](https://developers.worksmobile.com/jp/docs/auth-jwt#issue-access-token-response-body)
 :::
 
-
-### 実行してみる
+### 3. 実行してみる
 
 問題なければ `access_token` が返ってきます。この `access_token` を使ってLINE WORKSの様々なAPIを実行できるようになりました。
 トリガーをUser Assigned to Applicationにすれば、LINE WORKSがアサインされたときにアカウント自動作成といったことができます。
