@@ -34,7 +34,6 @@ LINE WORKSでは、プランによって実行できるAPIが異なります。
 LINE WORKSは2023年より以下のように仕様を変更しています：
 
 > 最高管理者を除く管理者は、通常のユーザーと同様に、ユーザーとして与えられた権限に基づいて、自身の情報など限定的なリソースに限り参照・管理ができます。与えられた管理権限に基づいてドメイン内のすべてのリソースにアクセスできるわけではありません。
-
 参考：[Developers](https://developers.worksmobile.com/jp/news/detail?id=614)
 
 最初にこの点に気づかず、User Account認証で実装してしまい、時間を無駄にしてしまいました。
@@ -121,13 +120,13 @@ JSON Web Token（JWT）生成時の `expires_in` は3600秒にする
 > ・1 hour (3600 秒)
 > ・24 hours (86400 秒)
 > 設定された有効期限が経過すると、自動的に満了する。
-
 参考：[Service Account 認証 (JWT) > Response Body (JSON)](https://developers.worksmobile.com/jp/docs/auth-jwt#issue-access-token-response-body)
 :::
 
 ### 3. 実行してみる
 
-問題なければ `access_token` が返ってきます。この `access_token` を使ってLINE WORKSの様々なAPIを実行できるようになりました。
+問題なければ `access_token` が返ってきます。
+この `access_token` を使ってLINE WORKSの様々なAPIを実行できるようになりました。
 トリガーをUser Assigned to Applicationにすれば、LINE WORKSがアサインされたときにアカウント自動作成といったことができます。
 
 ## むすび
