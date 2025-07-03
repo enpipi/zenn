@@ -26,7 +26,7 @@ LINE WORKSでは、プランによって実行できるAPIが異なります。
 
 > フリープランでは、user.read、group.read、orgunit.read、user.email.read、user.profile.read のみが利用できます。directory、directory.read、user、group、orgunit は利用できません。
 
-参考：https://developers.worksmobile.com/jp/docs/directory
+https://developers.worksmobile.com/jp/docs/directory
 
 プラン別の利用可能APIについては、以下を参照してください：
 https://developers.worksmobile.com/jp/docs/auth-scope#line-works
