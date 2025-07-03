@@ -1,5 +1,5 @@
 ---
-title: "LINEWORKSのAPIで躓いたこと、OktaWorkflowでService Account 認証をしてみた"
+title: "LINEWORKSのAPIで躓いたこと、OktaWorkflowでService Account認証をしてみた"
 emoji: "⛳"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
@@ -38,7 +38,6 @@ LINE WORKSは2023年より以下のように仕様を変更しています。
 https://developers.worksmobile.com/jp/news/detail?id=614
 
 最初その事を気が付かずに、User Account 認証で実装して時間がかかってしまいました。
-
 Service Account 認証で利用できないAPIについては以下記事を参照してください。
 https://developers.worksmobile.com/jp/docs/auth-jwt#prohibited-api
 
@@ -57,20 +56,33 @@ https://forum.worksmobile.com/jp/
 
 ## Okta WorkflowからAPIを叩く
 
-それではService Account 認証を用いて、POST /users を実行します。
+それではService Account 認証を用いて、Access Tokenを取得します。
 今回は OktaWorkflow でLINEWORKSの認証を通してみます。
 
 ## 全体の流れ
 
 1. 事前準備
-2. JSON Web Token（JWT）の署名〜テスト認証の実装
+2. JSON Web Token（JWT）の署名〜AccessTokenの取得
 3. 実行してみる
 
 ### 事前準備
 
-あああ
+LINEWORKS Developer Consoleにサインインします
+https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view
 
-### JSON Web Token（JWT）の署名
+1. アプリの新規追加から、新しいアプリを作成します。
+2. アプリ名等の設定をしたら **[保存]** を押します
+3. Sercvice Accountの **[発行]** を押します
+4. 以下の値をこのあと利用します
+    - Client ID
+    - Client Secret
+    - Service Account
+    - Private Key
+5. **[変更]** を押します。
+
+### JSON Web Token（JWT）の署名〜AccessTokenの取得
+
+![](/images/lineworks-api-from-okta-workflow/lineworks_auth_oktaworkflow.png)
 
 LINEWORKSでユーザー作成のAPIを実行するには、Acces Tokenが必要です。Acces Tokenの発行にはJWTを使用して署名する必要があります。
 >Service Account 認証は、JSON Web Token (以降、JWT) を使用してアプリ専用の仮想管理者アカウントで認証を行い、Access Token を発行して API を利用する方法です。
@@ -87,16 +99,18 @@ https://developers.worksmobile.com/jp/docs/auth-jwt#issue-access-token-response-
 :::
 
 1. OktaWorkflowの関数からJWT > `Sign` を選び、以下の値を入力します
-    - key : 秘密鍵
-    - issuer : s
+    - key : Private Keyの値
+    - issuer : Client IDの値
     - expiresin : `3600`
     - noTimeStamp : `False`
+    - header : `{"alg" : "RS256", "typ" : "JWT"}`
+    - subject : Service Accountの値
     - algorithm : HS256
 2. 関数から `Construct` を選び、以下の値を入力します
     - grant_type : `urn:ietf:params:oauth:grant-type:jwt-bearer`
     - assertion : 1で作成した `Sign` の出力 `jwt`
     - client_id : scope
-    - client_secret : a
+    - client_secret : Client Secretの値
     - scope : `directory`
 3. Applicationから `API Connector` の `POST`を選び、以下の値を入力します
     - URL : `https://auth.worksmobile.com/oauth2/v2.0/token`
@@ -107,8 +121,9 @@ https://developers.worksmobile.com/jp/docs/auth-jwt#issue-access-token-response-
 
 ### 実行してみる
 
-問題なければStausが200が返ってきます。
-トリガーをUser Assigned to Applicationにすれば、LINEWORKSがアサインされたときにアカウント自動作成といったことができるようになりました。
+問題なければ `access_token` が返ってきます。この`access_token`を使ってLINE WORKSの様々なAPIを実行することができるようになりました。
+トリガーをUser Assigned to Applicationにすれば、LINEWORKSがアサインされたときにアカウント自動作成といったことができます。
 
 ## むすび
 
+LINE WORKS APIの仕様のキャッチアップ、慣れないJWTの生成の参考になれば幸いです。
