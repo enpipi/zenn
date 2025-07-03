@@ -22,10 +22,10 @@ LINE WORKS APIを利用する前に、以下の注意点を確認してくださ
 LINE WORKSでは、プランによって実行できるAPIが異なります。
 最初にこの点に気づかず、フリープランの検証環境を使用してしまい、時間を無駄にしてしまいました。
 
-例えば、Directory APIの概要記事には次のように記載されています：
+例えば、[Directory API | Developers](https://developers.worksmobile.com/jp/docs/directory)には次のように記載されています：
 
 > フリープランでは、user.read、group.read、orgunit.read、user.email.read、user.profile.read のみが利用できます。directory、directory.read、user、group、orgunit は利用できません。
-参考：[Directory API | Developers](https://developers.worksmobile.com/jp/docs/directory)
+
 
 プラン別の利用可能APIについては、以下を参照してください：
 参考：[OAuth Scopes | Developers](https://developers.worksmobile.com/jp/docs/auth-scope#line-works)
@@ -35,12 +35,13 @@ LINE WORKSでは、プランによって実行できるAPIが異なります。
 LINE WORKSは2023年より以下のように仕様を変更しています：
 
 > 最高管理者を除く管理者は、通常のユーザーと同様に、ユーザーとして与えられた権限に基づいて、自身の情報など限定的なリソースに限り参照・管理ができます。与えられた管理権限に基づいてドメイン内のすべてのリソースにアクセスできるわけではありません。
+
 参考：[Developers](https://developers.worksmobile.com/jp/news/detail?id=614)
 
 最初にこの点に気づかず、User Account認証で実装してしまい、時間を無駄にしてしまいました。
 Service Account認証で利用できないAPIについては、以下を参照してください：
 
-[Service Account 認証 (JWT) > Service Account では利用できない API](https://developers.worksmobile.com/jp/docs/auth-jwt#prohibited-api)
+https://developers.worksmobile.com/jp/docs/auth-jwt#prohibited-api
 
 ### 指定するスコープは1つで十分
 
@@ -81,23 +82,15 @@ https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view
 
 ### JSON Web Token（JWT）の署名〜Access Tokenの取得
 
-![](/images/lineworks-api-from-okta-workflow/lineworks_auth_oktaworkflow.png)
 
 LINE WORKSでユーザー作成のAPIを実行するには、Access Tokenが必要です。Access Tokenの発行にはJWTを使用して署名する必要があります。
 Service Account認証は、JSON Web Token（以降、JWT）を使用してアプリ専用の仮想管理者アカウントで認証を行い、Access Tokenを発行してAPIを利用する方法です。
 
 https://developers.worksmobile.com/jp/docs/auth-jwt
 
-:::message
-JSON Web Token（JWT）生成時の `expires_in` は3600秒にする
-ドキュメントでは、`expires_in` は設定に従うと記載がありますが、検証した際には設定に関わらず3600秒にしないとエラーになりました。
+---
 
-> 有効期限は、Developer Console > API > ClientApp の [トークン設定 > Access Tokenの有効期限] の設定に従う。
-> ・1 hour (3600 秒)
-> ・24 hours (86400 秒)
-> 設定された有効期限が経過すると、自動的に満了する。
-参考：[Service Account 認証 (JWT) > Response Body (JSON)](https://developers.worksmobile.com/jp/docs/auth-jwt#issue-access-token-response-body)
-:::
+![](/images/lineworks-api-from-okta-workflow/lineworks_auth_oktaworkflow.png)
 
 1. Okta Workflowの関数からJWT > `Sign` を選び、以下の値を入力します：
    - key : Private Keyの値
@@ -121,6 +114,19 @@ JSON Web Token（JWT）生成時の `expires_in` は3600秒にする
    - Headers : `{"Content-Type": "application/x-www-form-urlencoded"}`
    - Body : 2で作成した `Construct` の出力 `output`
    - Connection : 使わないので何でも良いです
+
+
+:::message
+JSON Web Token（JWT）生成時の `expires_in` は3600秒にする
+ドキュメントでは、`expires_in` は設定に従うと記載がありますが、検証した際には設定に関わらず3600秒にしないとエラーになりました。
+もしかしたら一時的なデグレードかもしれません。
+> 有効期限は、Developer Console > API > ClientApp の [トークン設定 > Access Tokenの有効期限] の設定に従う。
+> ・1 hour (3600 秒)
+> ・24 hours (86400 秒)
+> 設定された有効期限が経過すると、自動的に満了する。
+参考：[Service Account 認証 (JWT) > Response Body (JSON)](https://developers.worksmobile.com/jp/docs/auth-jwt#issue-access-token-response-body)
+:::
+
 
 ### 実行してみる
 
