@@ -1,6 +1,6 @@
 ---
 title: "LINE WORKS APIとOkta WorkflowsでService Account認証を実装する際の注意点と実装手順"
-emoji: "⛳"
+emoji: "🔧"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [LINE WORKS,Okta Workflows,Okta]
 published: false
