@@ -2,7 +2,7 @@
 title: "LINE WORKS APIで躓いたこと、OktaWorkflowでService Account認証をしてみた"
 emoji: "⛳"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: []
+topics: [LINE WORKS,Okta Workflows]
 published: false
 publication_name: "notahotel"
 ---
