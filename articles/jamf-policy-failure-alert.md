@@ -2,7 +2,7 @@
 title: "Jamf Proのポリシー実行に失敗したらSlackに通知する"
 emoji: "🔔"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [Jamf Pro]
+topics: [Jamf Pro,Jamf]
 published: true
 publication_name: "notahotel"
 ---
