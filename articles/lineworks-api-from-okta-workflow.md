@@ -1,5 +1,5 @@
 ---
-title: "LINE WORKSのAPIで躓いたこと、OktaWorkflowでService Account認証をしてみた"
+title: "LINE WORKS APIで躓いたこと、OktaWorkflowでService Account認証をしてみた"
 emoji: "⛳"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
