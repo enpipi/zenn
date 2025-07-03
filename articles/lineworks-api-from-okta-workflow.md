@@ -15,7 +15,7 @@ NOT A HOTELでは、顧客とのやりとりでLINE WORKSを利用するケー�
 
 ## LINE WORKS APIの事前の注意
 
-INE WORKS APIの事前の注意点を紹介します。
+LINE WORKS APIの事前の注意点を紹介します。
 
 ### フリープランでは利用できるAPIに制限がある
 
@@ -76,7 +76,7 @@ LINEWORKSでユーザー作成のAPIを実行するには、Acces Tokenが必要
 >Service Account 認証は、JSON Web Token (以降、JWT) を使用してアプリ専用の仮想管理者アカウントで認証を行い、Access Token を発行して API を利用する方法です。
 https://developers.worksmobile.com/jp/docs/auth-jwt
 
-:::
+:::message
 JSON Web Token (JWT) 生成時の `expires_in` は3600secにする
 ドキュメントでは、`expires_in` は設定に従うと記載がありますが検証した際には設定に関わらず、3600secにしないとエラーになりました。
 >有効期限は、Developer Console > API > ClientApp の [トークン設定 > Access Tokenの有効期限] の設定に従う。
