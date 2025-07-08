@@ -3,7 +3,7 @@ title: "Okta WorkflowsでLINE WORKS APIを利用した際の注意点と実装�
 emoji: "🔧"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [LINE WORKS,Okta Workflows,Okta]
-published: false
+published: true
 publication_name: "notahotel"
 ---
 
