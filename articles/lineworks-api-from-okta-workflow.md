@@ -65,7 +65,7 @@ https://forum.worksmobile.com/jp/
 
 ### 1. 事前準備
 
-[LINE WORKS Developer Console}(https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view)にサインインします。
+[LINE WORKS Developer Console](https://dev.worksmobile.com/jp/console/openapi/v2/app/list/view)にサインインします。
 
 1. アプリの新規追加から、新しいアプリを作成します
 2. アプリ名等の設定をしたら **[保存]** を押します
